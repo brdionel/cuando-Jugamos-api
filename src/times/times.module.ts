@@ -12,3 +12,4 @@ import { MongooseModule } from '@nestjs/mongoose'
     providers: [TimesService]
 })
 export class TimesModule {}
+ 

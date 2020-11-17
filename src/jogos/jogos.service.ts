@@ -1,8 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Jogo } from './interfaces/Jogo';
-import { Time } from '../times/interfaces/Time'
 import { CreateJogo } from './dto/create-jogo.dto'
 
 @Injectable()
@@ -14,6 +13,7 @@ export class JogosService {
         const jogos =  await this.jogoModel.find()
         .populate('idLocal')
         .populate('idVisitante')
+        .populate('idCampeonato')
         .exec()
         return jogos;
     }
@@ -22,6 +22,7 @@ export class JogosService {
         const jogos =  await this.jogoModel.find({ $or:[ {'idLocal':idTime}, {'idVisitante':idTime}]})
             .populate('idLocal')
             .populate('idVisitante')
+            .populate('idCampeonato')
             .exec()
         return jogos;
     }

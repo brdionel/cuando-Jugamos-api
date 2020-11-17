@@ -5,9 +5,11 @@ import { TimesModule } from './times/times.module';
 import { JogosModule } from './jogos/jogos.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ReminderModule } from './reminder/reminder.module';
+import { CampeonatoModule } from './campeonato/campeonato.module';
 
 @Module({
-  imports: [TimesModule, JogosModule, MongooseModule.forRoot('mongodb://localhost/nest-times'), ReminderModule],
+  imports: [TimesModule, JogosModule, MongooseModule.forRoot('mongodb://localhost/nest-times'), 
+    ReminderModule, CampeonatoModule],
   controllers: [AppController],
   providers: [AppService],
 })

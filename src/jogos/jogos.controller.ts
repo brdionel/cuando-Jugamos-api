@@ -1,6 +1,5 @@
 import { Body, Controller, Get, Post, Res, NotFoundException, HttpStatus, Param, Delete, Put } from '@nestjs/common';
 import { JogosService } from './jogos.service';
-import { Jogo } from'./interfaces/Jogo';
 import { CreateJogo } from './dto/create-jogo.dto'
 
 @Controller('jogos')
@@ -11,7 +10,7 @@ export class JogosController {
     @Get()
     async getJogos(@Res() res){
         const jogos = await this.jogosService.getJogos()
-        if(!jogos) if(!jogos) throw new NotFoundException('Could not obtain partidos')
+        if(!jogos) throw new NotFoundException('Could not obtain partidos')
         return res.status(HttpStatus.OK).json({
             message: `jogos encontrados:  ${jogos.length}`,
             jogos

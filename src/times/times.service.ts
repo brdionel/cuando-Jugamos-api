@@ -17,7 +17,7 @@ export class TimesService {
     async getTime(timeID: string): Promise<Time> {
         const time = await this.timeModel.findById(timeID)
         return time;
-    }
+    } 
 
     async createTime(time: CreateTimeDTO): Promise<Time>{
         const newTime = new this.timeModel(time)
