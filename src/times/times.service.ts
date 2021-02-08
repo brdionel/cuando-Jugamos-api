@@ -10,7 +10,9 @@ export class TimesService {
    constructor(@InjectModel('Time') private timeModel: Model<Time>){}
 
     async getTimes(): Promise<Time[]> {
-        const times =  await this.timeModel.find();
+        const times =  await this.timeModel.find()
+        // find({ _id: {$in:[ "5fb3559d0954e60cf8c2fc01", "5fb355be0954e60cf8c2fc03", "5fac649d9c0850385c63569c",
+        // "5fac652a9c0850385c63569e", "5fb356170954e60cf8c2fc0a"]}});
         return times;
     }
 

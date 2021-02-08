@@ -8,7 +8,7 @@ export class TimesController {
 
     constructor(private timesService: TimesService){}
 
-    @Get()
+    @Get() 
     async getTimes(@Res() res): Promise<Time[]> {
         const times = await this.timesService.getTimes();
         return res.status(HttpStatus.OK).json({
@@ -34,10 +34,10 @@ export class TimesController {
         })
     };
 
-    @Delete()
-    async deleteTime(@Res() res, @Query('timeID') timeID){
-        console.log('el query que llega: '+timeID)
-        const timeDeleted = await this.timesService.deleteTime(timeID)
+    @Delete('/:id')
+    async deleteTime(@Param('id') id, @Res() res){
+        console.log('el query que llega: '+id)
+        const timeDeleted = await this.timesService.deleteTime(id)
         if(!timeDeleted) throw new NotFoundException('Product does not exists');
         return res.status(HttpStatus.OK).json({
             message: 'Time Deleted Succesfully',

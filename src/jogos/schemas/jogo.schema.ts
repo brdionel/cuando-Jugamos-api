@@ -15,5 +15,17 @@ export const JogoSchema = new Schema({
     idCampeonato: {
         type: Schema.Types.ObjectId, 
         ref: "Campeonato"
+    },
+    link: {
+        type: String
+    },
+    golesLocal: {
+      type: String
+    },
+    golesVisitante: {
+      type: String
+    },
+    videos: {
+      type: Array
     }
 })

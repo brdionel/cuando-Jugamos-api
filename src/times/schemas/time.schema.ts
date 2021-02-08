@@ -6,5 +6,6 @@ export const TimeSchema = new Schema({
     primaryColor: String,
     secondaryColor: String,
     apodo: String,
-    estadio: String
+    estadio: String,
+    prioridad: Number
 }) 

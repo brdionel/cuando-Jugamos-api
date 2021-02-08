@@ -7,4 +7,5 @@ export interface Time extends Document{
     secondaryColor: string;
     apodo: string;
     estadio: string;
+    prioridad: number;
 } 

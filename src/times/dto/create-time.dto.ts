@@ -5,4 +5,5 @@ export class CreateTimeDTO{
     secondaryColor: string
     apodo: string
     estadio: string
+    prioridad: number
 } 
